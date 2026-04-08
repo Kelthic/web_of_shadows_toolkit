@@ -29,3 +29,10 @@ This is simple script that mix diffuse map and emission mask in single one map
 6. Done. Now your diffuse map have emission mask and game will use it
 
 No video tutorial atm
+
+
+## Blend "PBR To WoS"
+
+This blend files include two nodegroups: WoS textures to Blender (PBR) or Blender (PBR) to Web of Shadows
+
+Watch the videotut about how to use that blend file: https://youtu.be/tfR867lGgXU
