@@ -17,3 +17,15 @@ Usage:
 Video tutorial with semi-detailed explain: https://youtu.be/tfR867lGgXU
 
 
+## Diffuse and Emission mixer
+
+This is simple script that mix diffuse map and emission mask in single one map
+
+1. Put script inside texture sets
+2. Open CMD using adress line
+3. Put to cmd: "python diffuse_emission_mix.py"
+4. After that put the name of your diffuse map (e.g "helmet_d_baked.png")
+5. After that put the name of your emission mask (e.g "helmet_e_baked.png")
+6. Done. Now your diffuse map have emission mask and game will use it
+
+No video tutorial atm
