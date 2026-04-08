@@ -8,7 +8,7 @@ This is simple script that converts default DX normal maps to Web of Shadows nor
 
 Usage:
 
-1. Put script inside texture sett
+1. Put script inside texture sets
 2. Open CMD using adress line
 3. Put to cmd: "python pbr_to_wos.py"
 4. After that put the name of your DX normal map (e.g "helmet_n_baked.png")
