@@ -166,7 +166,6 @@ def build_wrap_file(component0: bytes, component1: bytes,
     pgp_off = off_patch_table + 20
     struct.pack_into('<i', buf, pgp_off, off_gbl_patches - pgp_off)
 
-    # паддинг 0xA1 между секциями
     for i in range(off_after_comp_table, off_patch_table):
         buf[i] = 0xA1
     for i in range(off_after_patch, off_file_section):
@@ -175,7 +174,6 @@ def build_wrap_file(component0: bytes, component1: bytes,
     # component0
     buf[off_c0:off_c0 + sz_c0] = c0
 
-    # PHYS разделитель
     buf[off_phys:off_phys + 4] = b'PHYS'
 
     # component1
@@ -196,7 +194,6 @@ def parse_wrap_file(data: bytes):
 
     off_comp_table = 16 + p_comp_table_rel
 
-    # Читаем записи componentTable
     sz_c0   = struct.unpack_from('<I', data, off_comp_table + 0)[0]
     ptr0_rel = struct.unpack_from('<i', data, off_comp_table + 4)[0]
     off_c0  = (off_comp_table + 4) + ptr0_rel
@@ -209,10 +206,6 @@ def parse_wrap_file(data: bytes):
     c1 = data[off_c1: off_c1 + sz_c1]
     return c0, c1
 
-
-# ---------------------------------------------------------------------------
-# Работа с DDS
-# ---------------------------------------------------------------------------
 
 def read_dds(path: Path):
 
@@ -357,10 +350,6 @@ def warp_tex_to_dds(tex_path: Path, output_path: Path = None, verbose: bool = Tr
     return output_path
 
 
-# ---------------------------------------------------------------------------
-# Старый двухфайловый формат (.0.tex + .1.tex) — поддержка для совместимости
-# ---------------------------------------------------------------------------
-
 def old_tex_to_warp_tex(tex0_path: Path, output_path: Path = None, verbose: bool = True):
 
     tex1_path = Path(str(tex0_path).replace('.0.tex', '.1.tex'))
@@ -386,10 +375,6 @@ def old_tex_to_warp_tex(tex0_path: Path, output_path: Path = None, verbose: bool
         print(f"     {width}x{height}, mips={mips}, hash=0x{fname_hash:08X}")
     return output_path
 
-
-# ---------------------------------------------------------------------------
-# CLI
-# ---------------------------------------------------------------------------
 
 def process_path(p: Path, output_dir: Path, force: bool, verbose: bool) -> bool:
     name_lower = p.name.lower()
