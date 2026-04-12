@@ -36,3 +36,25 @@ No video tutorial atm
 This blend files include two nodegroups: WoS textures to Blender (PBR) or Blender (PBR) to Web of Shadows
 
 Watch the videotut about how to use that blend file: https://youtu.be/tfR867lGgXU
+
+## DDS to WRAP.tex
+
+This is script that converts from DDS to WRAP.tex & WRAP.tex to DDS
+Based on exWoS - File Overrider/Mod Framework by [Kirbystealer](https://github.com/kirbystealer/WebOfShadowsTools/tree/master/python)
+
+Usage:
+
+**DDS to WRAP.tex**
+```python
+python dds_to_warp_tex.py 0xEC7B3775.s3_symblackcat_tex1_dif.dds
+```
+
+**WRAP.tex to DDS**
+```python
+python dds_to_warp_tex.py 0xEC7B3775.s3_symblackcat_tex1_dif.warp.tex
+```
+
+**Custom output**
+```python
+python dds_to_warp_tex.py 0xEC7B3775.s3_symblackcat_tex1_dif.dds -o output\
+```
